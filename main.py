@@ -62,7 +62,8 @@ def delete():
     todo_item = Item.query.filter_by(id=todo_id).first()
     db.session.delete(todo_item)
     db.session.commit()
-    return redirect(url_for("home"))
+    list_title = request.form["listName"]
+    return redirect(f"/{list_title}")
 
 
 if __name__ == "__main__":
